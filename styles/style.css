@@ -53,8 +53,6 @@ body {
   border-right: 1px solid var(--accent-color);
   inline-size: 25px;
   block-size: 25px;
-  inset-inline-end: 0;
-  inset-block-start: 0;
   inset-inline-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
   inset-block-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
 }
@@ -66,7 +64,6 @@ body {
   border-left: 1px solid var(--accent-color);
   inline-size: 25px;
   block-size: 25px;
-  inset-block-end: 0;
   inset-inline-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
   inset-block-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
 }
