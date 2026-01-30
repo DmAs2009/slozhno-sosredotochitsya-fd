@@ -1,1 +1,0 @@
-https://github.com/DmAs2009/slozhno-sosredotochitsya-fd
