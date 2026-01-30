@@ -7,6 +7,7 @@ body {
 .page {
   background-color: var(--main-bg-color);
   font-family: var(--page-font-family, "IBM Plex mono", monospace);
+  background-attachment: fixed;
 }
 
 .header {
@@ -25,7 +26,7 @@ body {
   position: absolute;
   color: var(--accent-color);
   top: 13px;
-  right: 35px; 
+  right: 35px;
 }
 
 .rec__sign:after {
@@ -55,7 +56,7 @@ body {
   inset-inline-end: 0;
   inset-block-start: 0;
   top: 9px;
-  right: 9px; 
+  right: 9px;
 }
 
 .decorated-zone::after {
@@ -67,7 +68,7 @@ body {
   block-size: 25px;
   inset-block-end: 0;
   left: 10px;
-  bottom: 8px; 
+  bottom: 8px;
 }
 
 .header__theme-menu {
@@ -261,7 +262,7 @@ body {
     position: absolute;
     color: var(--accent-color);
     top: 21px;
-    right: 50px; 
+    right: 50px;
   }
 
   .rec__sign:after {
@@ -286,7 +287,7 @@ body {
     inset-inline-end: 0;
     inset-block-start: 0;
     top: 9px;
-    right: 9px; 
+    right: 9px;
   }
 
   .decorated-zone::after {
@@ -298,7 +299,7 @@ body {
     block-size: 25px;
     inset-block-end: 0;
     left: 20px;
-    bottom: 20px; 
+    bottom: 20px;
   }
 
   .header__theme-menu {
@@ -353,6 +354,7 @@ body {
 
    .article_how {
     margin-block-start: 1px;
+    grid-column-start: 2;
   }
 
   .main__section_paragraph_header {
@@ -360,10 +362,6 @@ body {
   }
 
   .article_why {
-    grid-column-start: 2;
-  }
-
-  .article_how {
     grid-column-start: 2;
   }
 
@@ -424,7 +422,7 @@ body {
     position: absolute;
     color: var(--accent-color);
     top: 23px;
-    right: 55px; 
+    right: 55px;
   }
 
   .rec__sign:after {
@@ -455,7 +453,7 @@ body {
     inset-inline-end: 0;
     inset-block-start: 0;
     top: 19px;
-    right: 19px; 
+    right: 19px;
   }
 
   .decorated-zone::after {
@@ -467,7 +465,7 @@ body {
     block-size: 25px;
     inset-block-end: 0;
     left: 18px;
-    bottom: 1px; 
+    bottom: 1px;
   }
 
   .header__main_heading {
