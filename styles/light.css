@@ -16,3 +16,19 @@
   --accent-clr: #FF8DCB;
   --header-info-text-color: #353430;
 }
+
+
+@media (prefers-color-scheme:light) {
+  :root {
+  --main-bg-image: url(../images/cover-image-light.png);
+  --paragraph-heading-color: #353430;
+  --paragraph-text-color: #353430;
+  --rec-visibility: hidden;
+  --decoration-color: #353430;
+  --main-heading-color:#FFC2E6;
+  --main-heading-shadow: #FF8DCB;
+  --main-bg-clr:#fff1f7;
+  --accent-clr: #FF8DCB;
+  --header-info-text-color: #353430;
+  }
+}
