@@ -6,7 +6,6 @@ body {
 
 .page {
   background-color: var(--main-bg-color);
-  --page-font-family: "IBM Plex mono", monospace;
   font-family: var(--page-font-family, "IBM Plex mono", monospace);
 }
 
@@ -131,7 +130,7 @@ body {
   font-size: 18px;
   line-height: 23.4px;
   letter-spacing: 2px;
-  color: var(--paragraph-heading-color);
+  color: var(--header-info-text-color);
   margin-bottom: 56px;
   inline-size: 355px;
   block-size: 117px;
@@ -157,13 +156,14 @@ body {
 }
 
 .main__section_paragraph_header {
-  color: var(--paragraph-heading-color);
+  color: var(--header-info-text-color);
   font-family: 'IBM Plex Mono';
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 10px;
   line-height: 23.4px;
   max-inline-size: 355px;
+  padding-left: 15px;
 }
 
 .main__section_paragraph {
@@ -172,9 +172,16 @@ body {
   font-weight: 400;
   line-height: 130%;
   letter-spacing: 2px;
-  word-spacing: 2.5px;
+  word-spacing: 2.3px;
   margin: 0;
   font-size: 18px;
+  padding-left: 2px;
+  text-align: left;
+  align-content: start;
+}
+
+.section_header_how {
+  font-weight: 400;
 }
 
 .article_how {
@@ -217,6 +224,7 @@ body {
 
 .footer {
   display: grid;
+  height: 667px;
 }
 
 .footer__main_heading {
@@ -229,12 +237,14 @@ body {
   justify-self: center;
 }
 
-@media (width >= 768px) {
+@media (min-width: 768px) {
+  
   .main {
   display: grid;
   gap: 50px;
   padding: 40px 20px 50px 20px;
-}
+  }
+
   .header {
     box-sizing: border-box;
     display: grid;
@@ -244,8 +254,51 @@ body {
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-    max-height: 1024px;
-    margin-block-end: 120px;
+    min-height: 1024px;
+  }
+
+  .rec__sign {
+    position: absolute;
+    color: var(--accent-color);
+    top: 21px;
+    right: 50px; 
+  }
+
+  .rec__sign:after {
+    position: absolute;
+    content: '';
+    inline-size: 9px;
+    block-size: 9px;
+    border-radius: 50%;
+    top: 5px;
+    left: 38px;
+    box-shadow: 0px 0px 4px 2px var(--accent-color);
+    background-color: var(--accent-color);
+  }
+
+    .decorated-zone::before {
+    content: '';
+    position: absolute;
+    border-top: 1px solid var(--accent-color);
+    border-right: 1px solid var(--accent-color);
+    inline-size: 25px;
+    block-size: 25px;
+    inset-inline-end: 0;
+    inset-block-start: 0;
+    top: 9px;
+    right: 9px; 
+  }
+
+  .decorated-zone::after {
+    content: '';
+    position: absolute;
+    border-bottom: 1px solid var(--accent-color);
+    border-left: 1px solid var(--accent-color);
+    inline-size: 25px;
+    block-size: 25px;
+    inset-block-end: 0;
+    left: 20px;
+    bottom: 20px; 
   }
 
   .header__theme-menu {
@@ -254,14 +307,26 @@ body {
   }
 
   .header__main_heading {
-    margin-block-start: 160px;
+    margin-block-start: 40px;
   }
 
   .header__info_paragraph {
     inline-size: clamp(364px, calc(100% / 2 - 10px), 472px);
-    margin-block-start: 120px;
+    margin-block-start: 10px;
     margin-inline-start: 370px;
     line-height: 110%;
+  }
+
+  .main__section_paragraph {
+  color: var(--paragraph-text-color);
+  font-family: 'IBM Plex Mono';
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 2px;
+  word-spacing: 2.3px;
+  margin: 0;
+  font-size: 18px;
+  word-wrap: normal;
   }
 
   .main__section {
@@ -342,7 +407,7 @@ body {
 }
 
 
-@media (width >= 1024px) {
+@media (min-width: 1024px) {
 
   .main {
     display: grid;
@@ -352,6 +417,7 @@ body {
 
   .header {
     margin-block-end: 14px;
+    min-height: 768px;
   }
 
   .rec__sign {
@@ -405,21 +471,22 @@ body {
   }
 
   .header__main_heading {
-    margin-block-start: 0px;
+    margin-block-start: 100px;
+    margin-block-end: 0px;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .header__info_paragraph {
     inline-size: clamp(364px, calc(100% / 2 - 10px), 491px);
-    height: 71px;
-    margin-block-start: 1px;
+    height: 80px;
+    margin-block-start: 30px;
     margin-inline-start: 500px;
   }
 
   .header__theme-menu {
     justify-self: center;
     margin-block-start: 0;
-    margin-block-end: 215px;
+    margin-block-end: 60px;
   }
 
   .header__theme-menu-list {
@@ -429,6 +496,7 @@ body {
 
   .main__section_why {
     grid-template-columns: 1fr 2fr;
+    margin-block-start: -20px;
   }
 
   .article_what {
@@ -438,12 +506,15 @@ body {
     grid-template-rows: min-content 1fr;
     grid-column-gap: 20px;
     row-gap: 0;
-    margin-block-start: 20;
   }
 
   .main__section_how {
     grid-template-columns: 1fr 2fr;
     margin-block-start: 0;
+  }
+
+  .footer__main_heading {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
   
 }  
