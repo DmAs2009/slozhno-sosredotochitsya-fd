@@ -13,13 +13,14 @@ body {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  margin:auto;
 }
 
 .header {
   box-sizing: border-box;
   display: grid;
   padding: 10px;
-  max-height: 100vh;
+  height: 100vh;
   min-height: 668px;
 }
 
@@ -137,7 +138,7 @@ body {
   color: var(--main-heading-color);
   text-shadow: 4px 4px 0 var(--main-heading-shadow);
   line-height: 83%;
-  margin-block-start: 50px;
+  margin-block-start: 48px;
   margin-bottom: 30px;
 }
 
@@ -146,7 +147,8 @@ body {
   font-size: 18px;
   line-height: 23.4px;
   color: var(--header-info-text-color);
-  margin-bottom: 56px;
+  margin-bottom: 35px;
+  block-size: min-content;
 }
 
 .title-decor {
@@ -155,6 +157,12 @@ body {
 
 .main {
   display: grid;
+  /*при удалении фона из этого селектора страница не соответствет макету.
+  Его можно перенести отдельно в каждую секцию текста, или нацепить на страницу целиком,
+  и перенести фоновое изобрадение в хэдер. 
+  Но в прошлых итерациях, было замечание что нужно его переносить в селектор страницы.
+  Если нам нужно, чтобы фоновое изображение было на всей странице - то можно удалить,
+  но в макете изображение только в хэдере*/
   background-color: var(--main-bg-clr);
   gap: 27px;
   padding: 40px 10px 0 10px;
@@ -273,22 +281,13 @@ body {
   }
 
   .rec__sign {
-    position: absolute;
-    color: var(--accent-clr);
     top: 20px;
     right: 50px;
   }
 
   .rec__sign:after {
-    position: absolute;
-    content: '';
-    inline-size: 9px;
-    block-size: 9px;
-    border-radius: 50%;
     top: 6px;
     left: 43px;
-    box-shadow: 0px 0px 4px 2px var(--accent-clr);
-    background-color: var(--accent-clr);
   }
 
   .decorated-zone::before {
@@ -331,7 +330,7 @@ body {
     max-inline-size: 363px;
     margin-inline-start: 385px;
     margin-block-end: 50px;
-    max-block-size: 117px;
+    max-block-size: min-content;
     padding-right: 50px;
   }
 
@@ -389,41 +388,51 @@ body {
     gap: 20px;
   }
 
-  .main__section_gallery_item-image {
-    width: 100%;
-    height: 100%;
+  .section_header_gallery {
+    margin-bottom: 0;
+    margin-block-start: 28px;
   }
 
   .main__section_gallery {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(3, fit-content);
-    margin-block-start: -20px;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
     gap: 20px;
+  }
+
+  .main__section_gallery_item-image {
+    width: 100%;
   }
 
   .main__section_img_gallery {
     display: flex;
     flex-direction: column;
-    margin-block-start: 35px;
   }
 
   .sky_image {
     grid-column: 1 / 3;
+    height: 192px;
   }
 
   .food_image {
     grid-column: 3;
     grid-row: 1 / 3;
+    height: 441px;
   }
 
   .music_image {
     grid-column: 1;
     grid-row: 2 / 4;
+    height: 568px;
+  }
+
+  .books_image {
+    height: 230px;
   }
 
   .walking_image {
     grid-column: 2 / 4;
+    height: 318px;
   }
 
   .footer {
@@ -434,7 +443,7 @@ body {
     font-weight: 700;
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
     color: var(--main-heading-color);
-    text-shadow: 4px 4px 0 var(--accent-clr);
+    text-shadow: 2px 2px 0 var(--accent-clr);
     align-self: center;
     justify-self: center;
     margin-block-start: 55px;
@@ -452,6 +461,7 @@ body {
   .header {
     margin-block-end: 14px;
     min-height: 768px;
+    padding-left: 0;
   }
 
   .rec__sign {
@@ -467,8 +477,8 @@ body {
     inline-size: 9px;
     block-size: 9px;
     border-radius: 50%;
-    top: 7px;
-    left: 43px;
+    top: 8px;
+    left: 44px;
     box-shadow: 0px 0px 4px 2px var(--accent-clr);
     background-color: var(--accent-clr);
   }
@@ -476,6 +486,7 @@ body {
   .decorated-zone {
     position: relative;
     padding: 8px;
+    padding-left: 0;
   }
 
   .decorated-zone::before {
@@ -499,23 +510,22 @@ body {
     inline-size: 25px;
     block-size: 25px;
     inset-block-end: 0;
-    left: 16px;
-    bottom: 15px;
+    left: 20px;
+    bottom: 20px;
   }
 
   .header__main_heading {
-    margin-block-start: 195px;
-    margin-inline-start: -10px;
+    margin-block-start: 198px;
     margin-block-end: 0px;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .header__info_paragraph {
-    padding-right: 15px;
-    max-inline-size: 491px;
-    max-block-size: 71px;
+    padding-right: 5px;
+    max-inline-size: 100vh;
+    max-block-size: min-content;
     margin-block-start: 40px;
-    margin-inline-start: 505px;
+    margin-inline-start: 512px;
   }
 
   .header__theme-menu {
@@ -542,16 +552,15 @@ body {
 
   .main__section_why {
     grid-template-columns: 1fr 2fr;
-    grid-column-gap: 20px;
+    grid-column-gap: 10px;
   }
 
   .article_why {
     margin-block-start: 5px;
-    margin-inline-start: -5px;
   }
 
   .main__section_what {
-    margin-block-start: 30px;
+    margin-block-start: 27px;
   }
 
   .article_what {
@@ -565,11 +574,38 @@ body {
 
   .main__section_how {
     grid-template-columns: 1fr 2fr;
-    margin-block-start: 0px;
+    margin-block-start: 3px;
+    gap: 10px
   }
 
   .article_how {
     margin-block-start: 7px;
+  }
+
+  .sky_image {
+    grid-column: 1 / 3;
+    height: 260px;
+  }
+
+  .food_image {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    height: 595px;
+  }
+
+  .music_image {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    height: 768px;
+  }
+
+  .books_image {
+    height: 315px;
+  }
+
+  .walking_image {
+    grid-column: 2 / 4;
+    height: 433px;
   }
 
   .footer {
