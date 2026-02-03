@@ -119,7 +119,7 @@ body {
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid var(--decoration-color);
+  border: 1px solid var(--decoration-color-hover);
 }
 
 .header__theme-menu-button:focus {
@@ -148,22 +148,15 @@ body {
   line-height: 23.4px;
   color: var(--header-info-text-color);
   margin-bottom: 35px;
-  block-size: min-content;
 }
 
 .title-decor {
   background-color: var(--accent-clr);
+  height: max-content;
 }
 
 .main {
   display: grid;
-  /*при удалении фона из этого селектора страница не соответствет макету.
-  Его можно перенести отдельно в каждую секцию текста, или нацепить на страницу целиком,
-  и перенести фоновое изобрадение в хэдер. 
-  Но в прошлых итерациях, было замечание что нужно его переносить в селектор страницы.
-  Если нам нужно, чтобы фоновое изображение было на всей странице - то можно удалить,
-  но в макете изображение только в хэдере*/
-  background-color: var(--main-bg-clr);
   gap: 27px;
   padding: 40px 10px 0 10px;
 }
@@ -177,7 +170,7 @@ body {
 
 .main__section_paragraph_header {
   color: var(--header-info-text-color);
-  font-family: 'IBM Plex Mono';
+  font-family: var(--page-font-family, "IBM Plex mono", monospace);
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 10px;
@@ -191,7 +184,7 @@ body {
 
 .main__section_paragraph {
   color: var(--paragraph-text-color);
-  font-family: 'IBM Plex Mono';
+  font-family: var(--page-font-family, "IBM Plex mono", monospace);
   font-weight: 400;
   line-height: 130%;
   margin: 0;
@@ -291,26 +284,11 @@ body {
   }
 
   .decorated-zone::before {
-    content: '';
-    position: absolute;
-    border-top: 1px solid var(--decoration-color);
-    border-right: 1px solid var(--decoration-color);
-    inline-size: 25px;
-    block-size: 25px;
-    inset-inline-end: 0;
-    inset-block-start: 0;
     top: 19px;
     right: 18px;
   }
 
   .decorated-zone::after {
-    content: '';
-    position: absolute;
-    border-bottom: 1px solid var(--decoration-color);
-    border-left: 1px solid var(--decoration-color);
-    inline-size: 25px;
-    block-size: 25px;
-    inset-block-end: 0;
     left: 20px;
     bottom: 20px;
   }
@@ -327,20 +305,12 @@ body {
   .header__info_paragraph {
     inline-size: clamp(364px, calc(100% / 2 - 10px), 491px);
     margin-bottom: 0px;
-    max-inline-size: 363px;
     margin-inline-start: 385px;
     margin-block-end: 50px;
     max-block-size: min-content;
-    padding-right: 50px;
   }
 
   .main__section_paragraph {
-    color: var(--paragraph-text-color);
-    font-family: 'IBM Plex Mono';
-    font-weight: 400;
-    line-height: 130%;
-    margin: 0;
-    font-size: 18px;
     word-wrap: normal;
   }
 
@@ -368,6 +338,7 @@ body {
 
   .main__section_paragraph_header {
     max-inline-size: 100%;
+    height: min-content;
   }
 
   .main__section_how {
@@ -380,6 +351,7 @@ body {
 
   .article_what {
     margin-top: 2px;
+    grid-template-rows: column;
   }
 
   .article_how {
@@ -440,12 +412,6 @@ body {
   }
 
   .footer__main_heading {
-    font-weight: 700;
-    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-    color: var(--main-heading-color);
-    text-shadow: 2px 2px 0 var(--accent-clr);
-    align-self: center;
-    justify-self: center;
     margin-block-start: 55px;
   }
 }
@@ -453,65 +419,20 @@ body {
 
 @media (min-width: 1024px) {
 
-  .main {
-    display: grid;
-    padding: 40px 20px 50px 20px;
-  }
-
   .header {
     margin-block-end: 14px;
     min-height: 768px;
     padding-left: 0;
   }
 
-  .rec__sign {
-    position: absolute;
-    color: var(--accent-clr);
-    top: 20px;
-    right: 50px;
-  }
-
   .rec__sign:after {
-    position: absolute;
-    content: '';
-    inline-size: 9px;
-    block-size: 9px;
-    border-radius: 50%;
     top: 8px;
     left: 44px;
-    box-shadow: 0px 0px 4px 2px var(--accent-clr);
-    background-color: var(--accent-clr);
   }
 
   .decorated-zone {
-    position: relative;
     padding: 8px;
     padding-left: 0;
-  }
-
-  .decorated-zone::before {
-    content: '';
-    position: absolute;
-    border-top: 1px solid var(--decoration-color);
-    border-right: 1px solid var(--decoration-color);
-    inline-size: 25px;
-    block-size: 25px;
-    inset-inline-end: 0;
-    inset-block-start: 0;
-    top: 19px;
-    right: 19px;
-  }
-
-  .decorated-zone::after {
-    content: '';
-    position: absolute;
-    border-bottom: 1px solid var(--decoration-color);
-    border-left: 1px solid var(--decoration-color);
-    inline-size: 25px;
-    block-size: 25px;
-    inset-block-end: 0;
-    left: 20px;
-    bottom: 20px;
   }
 
   .header__main_heading {
@@ -522,8 +443,6 @@ body {
 
   .header__info_paragraph {
     padding-right: 5px;
-    max-inline-size: 100vh;
-    max-block-size: min-content;
     margin-block-start: 40px;
     margin-inline-start: 512px;
   }
@@ -536,7 +455,6 @@ body {
   }
 
   .header__theme-menu-list {
-    display: flex;
     flex-direction: row;
     gap: 10px;
   }
@@ -561,15 +479,16 @@ body {
 
   .main__section_what {
     margin-block-start: 27px;
+    display: block;
   }
 
   .article_what {
     display: grid;
-    grid-auto-flow:column;
+    grid-auto-flow: column;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: min-content 1fr;
     grid-column-gap: 20px;
     row-gap: 0;
+    margin-block-start: 20px;
   }
 
   .main__section_how {
@@ -583,19 +502,14 @@ body {
   }
 
   .sky_image {
-    grid-column: 1 / 3;
     height: 260px;
   }
 
   .food_image {
-    grid-column: 3;
-    grid-row: 1 / 3;
     height: 595px;
   }
 
   .music_image {
-    grid-column: 1;
-    grid-row: 2 / 4;
     height: 768px;
   }
 
@@ -604,7 +518,6 @@ body {
   }
 
   .walking_image {
-    grid-column: 2 / 4;
     height: 433px;
   }
 
