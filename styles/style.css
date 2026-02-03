@@ -303,7 +303,8 @@ body {
   }
 
   .header__info_paragraph {
-    inline-size: clamp(364px, calc(100% / 2 - 10px), 491px);
+    inline-size: clamp(364px, calc(100% / 2 - 10px));
+    padding-right: 10px;
     margin-bottom: 0px;
     margin-inline-start: 385px;
     margin-block-end: 50px;
